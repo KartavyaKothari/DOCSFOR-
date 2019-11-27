@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Automated essay grader model &#8212; Automated Essay Grader  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="MVC architecture connections" href="main.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="automated-essay-grader-model">
+<h1>Automated essay grader model<a class="headerlink" href="#automated-essay-grader-model" title="Permalink to this headline">¶</a></h1>
+<p>Here we have a very short description of the module prediction part of the parent project Automated essay grader model.</p>
+<p>This is an efcient wrapper around a automated essay grading system</p>
+<span class="target" id="module-prediction"></span><dl class="function">
+<dt id="prediction.getAvgFeatureVecs">
+<code class="sig-prename descclassname">prediction.</code><code class="sig-name descname">getAvgFeatureVecs</code><span class="sig-paren">(</span><em class="sig-param">essays</em>, <em class="sig-param">model</em>, <em class="sig-param">num_features</em><span class="sig-paren">)</span><a class="headerlink" href="#prediction.getAvgFeatureVecs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main function to generate the word vectors for word2vec model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>essays</strong> – Input is essays</p></li>
+<li><p><strong>model</strong> – This input specifies the model to be used to generate Feature vec</p></li>
+<li><p><strong>num_features</strong> – This is a metric of number of columns in the matrix cols</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Returns the essay feature vector</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="prediction.makeFeatureVec">
+<code class="sig-prename descclassname">prediction.</code><code class="sig-name descname">makeFeatureVec</code><span class="sig-paren">(</span><em class="sig-param">words</em>, <em class="sig-param">model</em>, <em class="sig-param">num_features</em><span class="sig-paren">)</span><a class="headerlink" href="#prediction.makeFeatureVec" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function generates feature vectors for each dimension ie. plane</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>words</strong> – We pass the words that we needed</p></li>
+<li><p><strong>model</strong> – Model to decide on what basis police have been arrested</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">featureVec</span></code> is the result of the function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="prediction.predict">
+<code class="sig-prename descclassname">prediction.</code><code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">essay</em><span class="sig-paren">)</span><a class="headerlink" href="#prediction.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the function which calculates the score given an essay</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>essay</strong> – This input is the essay that we got from the fronend.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>We are returning the y_pred values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="prediction.tokenizeEssay">
+<code class="sig-prename descclassname">prediction.</code><code class="sig-name descname">tokenizeEssay</code><span class="sig-paren">(</span><em class="sig-param">essay</em><span class="sig-paren">)</span><a class="headerlink" href="#prediction.tokenizeEssay" title="Permalink to this definition">¶</a></dt>
+<dd><p>This funciton tokenizes the text provided as input in the from of essay</p>
+<p>We remove <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> from the essay</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">This</span> <span class="ow">is</span> <span class="n">america</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">america</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>essay</strong> – Input in the form of text</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Tokenized words</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Automated Essay Grader</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="main.html">MVC architecture connections</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Automated essay grader model</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="main.html" title="previous chapter">MVC architecture connections</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Kartavya, Aditya, Shreyansh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/prediction.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

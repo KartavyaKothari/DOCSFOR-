@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>MVC architecture connections &#8212; Automated Essay Grader  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Automated essay grader model" href="prediction.html" />
+    <link rel="prev" title="Welcome to Automated Essay Grader’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="mvc-architecture-connections">
+<h1>MVC architecture connections<a class="headerlink" href="#mvc-architecture-connections" title="Permalink to this headline">¶</a></h1>
+<p>This is a short description of the code belonging to the plumbing between frontend and backend</p>
+<p>The code in this file is mainly plumbing between the frontend and ML backend. It consists of routes which map to the browser url. We use the MVC architechture where we code the controller and modals. View manager in our code is Jinga2vec</p>
+<span class="target" id="module-main"></span><dl class="function">
+<dt id="main.contrbPage">
+<em class="property">async </em><code class="sig-prename descclassname">main.</code><code class="sig-name descname">contrbPage</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#main.contrbPage" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function gives people the option to contribute the essay set and make the model better.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Essay</span><span class="p">:</span> <span class="n">Hi</span><span class="p">,</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">festival</span> <span class="n">of</span> <span class="n">diwali</span> <span class="ow">and</span> <span class="n">I</span> <span class="n">like</span> <span class="n">to</span> <span class="n">enjoy</span> <span class="n">it</span> <span class="k">with</span> <span class="n">my</span> <span class="n">friends</span> <span class="ow">and</span> <span class="n">pet</span> <span class="n">cow</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Score</span><span class="p">:</span> <span class="mi">30</span><span class="o">/</span><span class="mi">100</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.evaluate">
+<em class="property">async </em><code class="sig-prename descclassname">main.</code><code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#main.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function evaluate: stores the user input essay and corresponding score
+We have two calls of function evaluate with the distinction of the routes with totally different route.</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">&#64;app.route('/evaluate',methods=[&quot;POST&quot;])</span></code></dt><dd><p>This sends the essay to the server and recieves the score after some calculation.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">&#64;app.route('/contribute',methods=[&quot;POST&quot;])</span></code></dt><dd><p>This is to store the essay and score pair provided by the user and appreciate the wholsomeness of it</p>
+</dd>
+</dl>
+</li>
+</ol>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.evaluateFile">
+<em class="property">async </em><code class="sig-prename descclassname">main.</code><code class="sig-name descname">evaluateFile</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#main.evaluateFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>This funicton gives us a method to get the text out of file directly. Intead of writing text, it is better to upload text.</p>
+<p>We see the function on a route <code class="docutils literal notranslate"><span class="pre">&#64;app.route('/evaluateFile',methods=[&quot;POST&quot;])</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.firebase_login">
+<em class="property">async </em><code class="sig-prename descclassname">main.</code><code class="sig-name descname">firebase_login</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#main.firebase_login" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function deals with authentication in the code</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param</dt>
+<dd class="field-odd"><p>request</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><p>Templating engine for Python3 rendering</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cool</span><span class="nd">@cool</span><span class="o">.</span><span class="n">com</span> <span class="ow">and</span> <span class="n">coolcool</span>
+</pre></div>
+</div>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.firebase_register">
+<em class="property">async </em><code class="sig-prename descclassname">main.</code><code class="sig-name descname">firebase_register</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#main.firebase_register" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function registers us on the firebase platform.</p>
+<p>It accepts user input from UI, ie. The email and password</p>
+<p>The route for the same would be <code class="docutils literal notranslate"><span class="pre">&#64;app.route('/registration',methods=[&quot;POST&quot;])</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.getEssay">
+<em class="property">async </em><code class="sig-prename descclassname">main.</code><code class="sig-name descname">getEssay</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#main.getEssay" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function getEssay is here to give us access to the cloud hosted url whenever. We can now check about donated essays till now.
+This controller operates on route <code class="docutils literal notranslate"><span class="pre">&#64;app.route('/{prompt}')</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.login">
+<em class="property">async </em><code class="sig-prename descclassname">main.</code><code class="sig-name descname">login</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#main.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the controller Login, we have two different routes</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;app.route('/')</span></code>, This is invoked when we have a redirect to and from the default start state or direct home href links</p></li>
+</ol>
+<p>2) <code class="docutils literal notranslate"><span class="pre">&#64;app.route('/register')</span></code> We get here when it’s the login link vi
+This function gives us the ability of logging in if our username and pass match</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.show_index">
+<em class="property">async </em><code class="sig-prename descclassname">main.</code><code class="sig-name descname">show_index</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#main.show_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function is a controller. It is invoked when we call <code class="docutils literal notranslate"><span class="pre">/auth</span></code></p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Automated Essay Grader</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MVC architecture connections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prediction.html">Automated essay grader model</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Automated Essay Grader’s documentation!</a></li>
+      <li>Next: <a href="prediction.html" title="next chapter">Automated essay grader model</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Kartavya, Aditya, Shreyansh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/main.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
