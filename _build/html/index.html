@@ -33,10 +33,10 @@
             
   <div class="section" id="welcome-to-automated-essay-grader-s-documentation">
 <h1>Welcome to Automated Essay Grader’s documentation!<a class="headerlink" href="#welcome-to-automated-essay-grader-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Automated Essay Grader is essentially a usable wrapper for using machine learning models based on Essay grading. Our project runs on <code class="docutils literal notranslate"><span class="pre">Starlette</span> <span class="pre">server</span></code> hosted on <code class="docutils literal notranslate"><span class="pre">Heroku</span> <span class="pre">cloud</span></code> with a no SQL database hosted on <code class="docutils literal notranslate"><span class="pre">Firebase</span></code>. Using <code class="docutils literal notranslate"><span class="pre">MVC</span> <span class="pre">architecture</span></code> we have created a web interface powered by <code class="docutils literal notranslate"><span class="pre">Bootstrap</span> <span class="pre">4.0</span></code>. Our project also has a fully featured <code class="docutils literal notranslate"><span class="pre">Android</span></code> interface.</p>
+<p>Automated Essay Grader is essentially a usable wrapper for using machine learning models based on Essay grading. Our project runs on <code class="docutils literal notranslate"><span class="pre">Starlette</span> <span class="pre">server</span></code> hosted on <code class="docutils literal notranslate"><span class="pre">Heroku</span> <span class="pre">cloud</span></code> with a noSQL database hosted on <code class="docutils literal notranslate"><span class="pre">Firebase</span></code>. Using <code class="docutils literal notranslate"><span class="pre">MVC</span> <span class="pre">architecture</span></code> we have created a web interface powered by <code class="docutils literal notranslate"><span class="pre">Bootstrap</span> <span class="pre">4.0</span></code>. Our project also has a fully featured <code class="docutils literal notranslate"><span class="pre">Android</span></code> interface.</p>
 <p>To check a live web demo <a class="reference external" href="https://codigos.herokuapp.com/">Check out</a></p>
-<div class="section" id="project-starting-formalities">
-<h2>Project starting formalities<a class="headerlink" href="#project-starting-formalities" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="project-environment-setup">
+<h2>Project environment setup<a class="headerlink" href="#project-environment-setup" title="Permalink to this headline">¶</a></h2>
 <p>To start the project you first need to install all dependencies:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
@@ -53,6 +53,19 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">python3</span> <span class="n">main</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="deployment-steps-using-docker">
+<h2>Deployment steps using Docker<a class="headerlink" href="#deployment-steps-using-docker" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>You can simply build the the image file by running following in the directory where Dockerfile is present</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">docker</span> <span class="n">build</span> <span class="o">--</span><span class="n">tag</span> <span class="n">essay</span><span class="o">-</span><span class="n">grader</span> <span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">name</span> <span class="n">essay</span><span class="o">-</span><span class="n">grader</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8000</span><span class="p">:</span><span class="mi">8000</span> <span class="n">essay</span><span class="o">-</span><span class="n">grader</span>
+</pre></div>
+</div>
+</li>
+</ol>
 </div>
 <div class="section" id="checkout-some-code-now">
 <h2>Checkout some code now<a class="headerlink" href="#checkout-some-code-now" title="Permalink to this headline">¶</a></h2>
